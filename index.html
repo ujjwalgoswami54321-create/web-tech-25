@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujjwal Puri Goswami - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+            border: 5px solid white;
+        }
+
+        .profile-info h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .profile-info .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover, .project-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .item-title {
+            font-size: 1.3em;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .item-subtitle {
+            color: #666;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid #764ba2;
+        }
+
+        .skill-category h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+            font-size: 1.2em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            .profile-info h1 {
+                font-size: 2em;
+            }
+
+            section {
+                padding: 25px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <div class="profile-photo"><img src="c:\Users\Ujjwal Goswami\CrossDevice\realme P3 Pro 5G\storage\portfolio_ujjwal\WhatsApp Image 2025-11-13 at 15.36.18.jpeg" alt="Ujjwal Puri Goswami" style="width: 400px; height: 180px; border-radius: 50%;"></div>
+                <div class="profile-info">
+                    <h1>Ujjwal Puri Goswami</h1>
+                    <p class="subtitle">B.Tech CSE Student | Web Developer | I work as Graphic designer and social media team at Rungta university </p>
+                    <div class="location">
+                        <span>📍</span>
+                        <span>Bilaspur chhatisgarh, India</span>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>ujjwalgoswmi54321@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>+91 6266458970</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>💼</span>
+                            <span>https://www.linkedin.com/in/ujjwal-goswami-885348383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>💻</span>
+                            <span>GitHub Profile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1em; line-height: 1.8; color: #555;">
+                I am a passionate B.Tech Computer Science Engineering student at Rungta International Skills University with hands-on experience in web development. Currently working as an intern at Codeapto, Bengaluru, where I've contributed to multiple web development projects including CSV to JSON converters, number system converters, and HTML color coding tools. I enjoy creating practical web solutions and continuously expanding my technical skills.
+            </p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="item-title">B.Tech in Computer Science Engineering</div>
+                <div class="item-subtitle">Rungta International Skills University</div>
+                <div class="item-date">Currently Pursuing</div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">Class 12th (Intermediate)</div>
+                <div class="item-subtitle">Bharat mata eng med hr sec school</div>
+                <div class="item-date">2024 - 2025</div>
+            </div>
+            <div class="education-item">
+                <div class="item-title">Class 10th </div>
+                <div class="item-subtitle">Bharat mata eng med hr sec school</div>
+                <div class="item-date">2022 - 2023</div>
+            </div>
+        </section>
+
+        <section id="experience">
+    <h2>Skills & Experience</h2>
+    <div class="experience-item">
+        <div class="item-title">Videographer & Graphic Designer</div>
+        <div class="item-subtitle">Independent Studio – Bilaspur</div>
+        <div class="item-date">2022 - Present</div>
+        <p style="margin-top: 12px; color: #555; line-height: 1.7;">
+            I am a professional videographer and graphic designer with strong creative and technical skills. 
+            I have hands-on experience in video shooting, editing, graphic design, and visual storytelling. 
+            Currently, I run my own studio in Bilaspur, where I work on various projects including promotional videos, 
+            creative designs, and client-based visual content.
+            <br><br>
+            We also provide professional wedding shoots and event coverage with high-quality equipment and creative direction.
+            <br><br>
+            For work, collaboration, or services, feel free to contact me at <strong>+91 6266458970</strong> 
+            or email me at <strong>ujjwalgoswami54321@email.com</strong>.
+        </p>
+    </div>
+</section>
+
+
+
+        <section id="projects">
+            <h2>Projects</h2>
+           
+                  <div class="project-card">
+    <h1>AI-Based Fire Alert & Automatic Safety System</h3>
+    <p>
+        Developed an AI-based fire alert system during Class 12 that detects fire hazards in real time. 
+        The system is capable of automatically extinguishing fire even when no one is present at home. 
+        It instantly alerts the house owner and automatically places emergency calls to the nearest 
+        police station and fire extinguishing services, ensuring quick response and enhanced safety.
+        <br><br>
+        This project won <strong>First Prize at both District and State Level competitions</strong>, 
+        recognizing its innovation, real-world impact, and effective use of AI-based automation.
+    </p>
+</div>
+
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                        <li>Web Development</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                         <li>Leadership</li>
+                        <li>Communication</li>
+                        <li>Teamwork</li>
+                        <li>Creativity</li>
+                        <li>Problem Solving</li>
+                        <li>Event Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+       <footer style="color: black;">
+    <p>&copy; 2024 Ujjwal Puri Goswami. All rights reserved.</p>
+    <p style="margin-top: 10px; font-size: 0.95em;">
+        Built with HTML, CSS &amp; JavaScript
+    </p>
+</footer>
+
+    <script>
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    entry.target.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add hover effect to contact items
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body>
+</html>
